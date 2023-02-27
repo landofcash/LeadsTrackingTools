@@ -71,9 +71,15 @@ pre {
       },
       methods: {
         submit() {
-          const myJsonList = this.items.filter(item => this.selectedItems.includes(item.name));
-          // Use myJsonList as desired
-          this.jsonResult = JSON.stringify(myJsonList, null, 0).replace(/\},/g, "},\n").replace(/\]/g, "\n\]").replace(/\[/g, "\[\n");
+          const selectedItems = this.items.filter(item => this.selectedItems.includes(item.name));
+		  const result = selectedItems.map(item => {
+			return {
+			  name: item.name,
+			  p: item.p?parseFloat(item.p):null
+			};
+		  });
+          
+          this.jsonResult = JSON.stringify(result, null, 0).replace(/\},/g, "},\n").replace(/\]/g, "\n\]").replace(/\[/g, "\[\n");
         }
       }
     });
