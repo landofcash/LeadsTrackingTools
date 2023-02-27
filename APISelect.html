@@ -37,7 +37,12 @@
       </div>
     </div>
   </div>
-
+  <style>
+pre {
+  background-color: #f8f9fa;
+  padding: 10px;
+}
+</style>
   <!-- Vue.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
 
@@ -68,7 +73,7 @@
         submit() {
           const myJsonList = this.items.filter(item => this.selectedItems.includes(item.name));
           // Use myJsonList as desired
-          this.jsonResult = JSON.stringify(myJsonList, null, 1);
+          this.jsonResult = JSON.stringify(myJsonList, null, 0).replace(/\},/g, "},\n").replace(/\]/g, "\n\]").replace(/\[/g, "\[\n");
         }
       }
     });
