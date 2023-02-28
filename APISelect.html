@@ -73,10 +73,12 @@ pre {
         submit() {
           const selectedItems = this.items.filter(item => this.selectedItems.includes(item.name));
 		  const result = selectedItems.map(item => {
-			return {
-			  name: item.name,
-			  p: item.p?parseFloat(item.p):null
-			};
+			let p = item.p?parseFloat(item.p):0;
+			p=p>1?p/100:p;
+			if(p>0) {
+				return {name: item.name,p:p};
+			}
+			return {name: item.name};			
 		  });
           
           this.jsonResult = JSON.stringify(result, null, 0).replace(/\},/g, "},\n").replace(/\]/g, "\n\]").replace(/\[/g, "\[\n");
