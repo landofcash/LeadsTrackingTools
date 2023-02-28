@@ -74,7 +74,7 @@ pre {
           const selectedItems = this.items.filter(item => this.selectedItems.includes(item.name));
 		  const result = selectedItems.map(item => {
 			let p = item.p?parseFloat(item.p):0;
-			p=p>1?p/100:p;
+			p=p>1?(p/100):p;
 			if(p>0) {
 				return {name: item.name,p:p};
 			}
