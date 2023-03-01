@@ -1,8 +1,5 @@
+import selectWithPercent from './SelectWithPercent.vue'
+
 let GlobalVueComponents = {};
-
-let selectWithPercent = require('./SelectWithPercent.vue');
-
-GlobalVueComponents.selectWithPercent = selectWithPercent.default;
-
-
+GlobalVueComponents.selectWithPercent = selectWithPercent;
 window.GlobalVueComponents = GlobalVueComponents;
