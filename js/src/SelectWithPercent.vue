@@ -62,7 +62,7 @@ export default {
         }
         return {name: item.name};
       });
-      me.result = JSON.stringify(result, null, 0)
+      me.result = JSON.stringify(result||[], null, 0)
           .replace(/\},/g, "},\n")
           .replace(/\]/g, "\n\]")
           .replace(/\[/g, "\[\n");
