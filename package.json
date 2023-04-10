@@ -8,7 +8,7 @@
     "start": "node build.js -s"
   },
   "dependencies": {
-
+    "@aitodotai/json-stringify-pretty-compact": "^1.3.0"
   },
   "devDependencies": {
     "esbuild": "^0.17.10",

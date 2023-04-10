@@ -7,12 +7,35 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css"
           integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA=="
-          crossorigin="anonymous"
-          referrerpolicy="no-referrer"/>
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js"
+            integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         pre {
             background-color: #f8f9fa;
             padding: 10px;
+        }
+
+        .btn-default {
+            color: #333;
+            background-color: #fff;
+            border-color: #ccc;
+        }
+        .btn-default:focus {
+            color: #333;
+            background-color: #e6e6e6;
+            border-color: #8c8c8c;
+        }
+        .btn-default:hover {
+            color: #333;
+            background-color: #e6e6e6;
+            border-color: #adadad;
+        }
+        .btn-default:active {
+            color: #333;
+            background-color: #e6e6e6;
+            border-color: #adadad;
         }
     </style>
 </head>
@@ -73,21 +96,116 @@
     createApp({
         components: GlobalVueComponents,
         data() {
+            let itemData={};
+            let itemTemplate={};
+            //1 = fixed value
+            //2 = value from url param
+            //3 = custom JS function
             return {
                 items: [
-                    {"name": "bnology", "p": null},
-                    {"name": "thunder2", "p": null},
-                    {"name": "trackbox", "p": null},
-                    {"name": "libertex", "p": null},
-                    {"name": "libertex3", "p": null},
-                    {"name": "roikingdom", "p": null},
-                    {"name": "affiliate_masters", "p": null},
-                    {"name": "leadingmedia", "p": null},
-                    {"name": "TrafficonAPI", "p": null},
-                    {"name": "thunder", "p": null},
-                    {"name": "epcclubtracker", "p": null},
-                    {"name": "finnteka", "p": null},
-                    {"name": "inceptial", "p": null}
+                    {"name": "bnology", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'EN'},
+                            {name:'Campaign',propType:'1',propValue:'2757871'},
+                            {name:'UserAgent',propType:'3',propValue:'navigator.userAgent'},
+                            {name:'Creative',propType:'2',propValue:'c'},
+                            {name:'PublisherSourceId',propType:'2',propValue:'s'}
+                        ]
+                    },
+                    {"name": "thunder2", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'EN'},
+                            {name:'Page',propType:'1',propValue:'amazon'},
+                            {name:'SubSource',propType:'2',propValue:'s'},
+                            {name:'Note',propType:'1',propValue:''},
+                            {name:'Description',propType:'2',propValue:'c'},
+                        ]
+                    },
+                    {"name": "trackbox", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'EN'},
+                            {name:'Gi',propType:'1',propValue:'56'},
+                            {name:'Campaign',propType:'2',propValue:'s'},
+                            {name:'SubCampaign',propType:'2',propValue:'c'},
+                        ]
+                    },
+                    {"name": "libertex", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'ITA'},
+                            {name:'Campaign',propType:'2',propValue:'s'},
+                            {name:'SubCampaign',propType:'2',propValue:'c'}
+                        ]
+                    },
+                    {"name": "libertex3", "p": null,  data:[
+                            {name:'Language',propType:'1',propValue:'ITA'},
+                            {name:'Campaign',propType:'2',propValue:'s'},
+                            {name:'SubCampaign',propType:'2',propValue:'c'},
+                        ]
+                    },
+                    {"name": "roikingdom", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'EN'},
+                            {name:'Gi',propType:'1',propValue:'56'},
+                            {name:'Campaign',propType:'2',propValue:'s'},
+                            {name:'SubCampaign',propType:'2',propValue:'c'},
+                        ]
+                    },
+                    {"name": "affiliate_masters", "p": null,
+                        data:[
+                            {name:'OfferWebsite',propType:'1',propValue:''},
+                            {name:'OfferName',propType:'2',propValue:'s'},
+                            {name:'Comment',propType:'2',propValue:'c'},
+                            {name:'Locale',propType:'1',propValue:''},
+                        ]
+                    },
+                    {"name": "leadingmedia", "p": null,
+                        data:[
+                            {name:'So',propType:'1',propValue:'amazon'},
+                            {name:'Sub',propType:'2',propValue:'s'},
+                            {name:'Campaign',propType:'2',propValue:'c'},
+                        ]
+                    },
+                    {"name": "TrafficonAPI", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'EN'},
+                            {name:'Campaign',propType:'2',propValue:'s'},
+                            {name:'SubCampaign',propType:'1',propValue:'https://bergmann-globe.com/azionidiamazon/'},
+                            {name:'Iso',propType:'1',propValue:'UK'},
+                            {name:'OfferId',propType:'1',propValue:'350'},
+                        ]},
+                    {"name": "thunder", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'EN'},
+                            {name:'Page',propType:'1',propValue:'amazon'},
+                            {name:'SubSource',propType:'2',propValue:'s'},
+                            {name:'Note',propType:'1',propValue:''},
+                            {name:'Description',propType:'2',propValue:'c'},
+                        ]
+                    },
+                    {"name": "epcclubtracker", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'EN'},
+                            {name:'Page',propType:'1',propValue:'amazon'},
+                            {name:'SubSource',propType:'2',propValue:'s'},
+                            {name:'Note',propType:'1',propValue:''},
+                            {name:'Description',propType:'2',propValue:'c'},
+                        ]
+                    },
+                    {"name": "finnteka", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'EN'},
+                            {name:'PageParam',propType:'2',propValue:'s'},
+                        ]
+                    },
+                    {"name": "inceptial", "p": null,
+                        data:[
+                            {name:'Language',propType:'1',propValue:'EN'},
+                            {name:'Campaign',propType:'2',propValue:'s'},
+                            {name:'Currency',propType:'1',propValue:'USD'},
+                            {name:'Source',propType:'2',propValue:'c'},
+                            {name:'Medium',propType:'1',propValue:''},
+                        ]
+                    }
                 ],
                 mainApis: "[]",
                 retryApis: "[]"
